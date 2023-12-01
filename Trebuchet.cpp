@@ -5,6 +5,8 @@
 
 using namespace std;
 
+const string NumbersAsStrings[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
 int ParseLine(string ToParse)
 {
 	bool FirstFound = false;
@@ -21,6 +23,24 @@ int ParseLine(string ToParse)
 			else
 			{
 				Last = ToParse[i] - 48;
+			}
+		}
+		else
+		{
+			for (int j =0; j < NumbersAsStrings->length(); j++)
+			{
+				if (ToParse.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
+				{
+					if (!FirstFound)
+					{
+						First = j;
+						FirstFound = true;
+					}
+					else
+					{
+						Last = j;
+					}
+				}
 			}
 		}
 	}
