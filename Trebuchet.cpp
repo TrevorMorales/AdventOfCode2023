@@ -11,6 +11,13 @@ int ParseLine(string ToParse)
 {
 	bool FirstFound = false;
 	int First = ' ', Last = ' ';
+	for (int c = 0; c < ToParse.length(); c++)
+	{
+		if (ToParse[c] >= 65 && ToParse[c] <= 90)
+		{
+			ToParse[c] += 32;
+		}
+	}
 	for (int i = 0; i < ToParse.length(); i++)
 	{
 		if (ToParse[i] >= 48 && ToParse[i] <= 57)
