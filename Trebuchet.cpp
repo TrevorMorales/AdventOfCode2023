@@ -8,59 +8,41 @@ const string NumbersAsStrings[10] = {"zero", "one", "two", "three", "four", "fiv
 
 int ParseLine(string &ToParse)
 {
+	int Nums[2] = {NULL, NULL};
 	bool FirstFound = false;
 	int First = NULL, Last = NULL;
 	char CheckChar;
 
-	for (int i = 0; i < ToParse.length(); i++)
+	for (char &c : ToParse)
 	{
-		CheckChar = ToParse[i];
-		if (CheckChar >= 65 && CheckChar <= 90)
+		if (c >= 'A' and c <= 'Z')
 		{
-			ToParse[i] += 32;
+			c += 32;
 		}
 	}
-	for (int i = 0; i < ToParse.length(); i++)
+	for (int i = 0; i <= ToParse.length(); i++)
 	{
 		CheckChar = ToParse[i];
-		if (CheckChar >= 48 && CheckChar <= 57)
+		if (CheckChar >= 48 and CheckChar <= 57)
 		{
-			if (!FirstFound)
-			{
-				First = CheckChar - 48;
-				FirstFound = true;
-			}
-			else
-			{
-				Last = CheckChar - 48;
-			}
+			Nums[FirstFound] = CheckChar - 48;
+			FirstFound = (FirstFound ? FirstFound : true);
 		}
 		for (int j = 0; j < 10; j++)
 		{
 			string temp = ToParse;
 			if (temp.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
 			{
-				if (!FirstFound)
-				{
-					First = j;
-					FirstFound = true;
-				}
-				else
-				{
-					Last = j;
-				}
+				Nums[FirstFound] = j;
+				FirstFound = (FirstFound ? FirstFound : true);
 			}
 		}
 	}
-	if (First != NULL)
+	if(Nums[size(Nums)-1] == NULL)
 	{
-		if (Last != NULL)
-		{
-			return ((First * 10) + Last);
-		}
-		return ((First * 10) + First);
+		return (Nums[0] * 10) + Nums[0];
 	}
-	return 0;
+	return (Nums[0] * 10) + Nums[1];
 }
 
 int main()
