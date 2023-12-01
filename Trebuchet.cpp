@@ -32,22 +32,23 @@ int ParseLine(string ToParse)
 		}
 		return ((First * 10) + First);
 	}
-	return -1;
+	return 0;
 }
 
 string TestExamples[4] = {"1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"};
 
 int main()
 {
-	ifstream fs;
-	fs.open("Inputs/TrebuchetInput.txt");
-
+	int OutputSum = 0;
+	ifstream ifs;
+	ifs.open("Inputs/TrebuchetInput.txt");
 	string line;
-	if (fs.is_open()) {
-		while (getline(fs, line)) {
-			cout << ParseLine(line) << endl;
+	if (ifs.is_open()) {
+		while (getline(ifs, line)) {
+			OutputSum += ParseLine(line);
 		}
 	}
-	fs.close();
+	cout << OutputSum;
+	ifs.close();
 	return 0;
 }
