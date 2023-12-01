@@ -35,8 +35,6 @@ int ParseLine(string ToParse)
 	return 0;
 }
 
-string TestExamples[4] = {"1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"};
-
 int main()
 {
 	int OutputSum = 0;
