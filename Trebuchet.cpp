@@ -28,9 +28,13 @@ int ParseLine(string ToParse)
 	return -1;
 }
 
+string TestExamples[4] = {"1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"};
+
 int main()
 {
-	string FirstTest = "1abc2";
-	cout << ParseLine(FirstTest);
+	for (int i = 0; i < TestExamples->length(); i++)
+	{
+		cout << TestExamples[i] << " : " << ParseLine(TestExamples[i]) << endl;
+	}
 	return 0;
 }
