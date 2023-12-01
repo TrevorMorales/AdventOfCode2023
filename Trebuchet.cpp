@@ -7,18 +7,24 @@ using namespace std;
 
 const string NumbersAsStrings[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
-int ParseLine(string ToParse)
+int ParseLine(string &ToParse)
 {
 	bool FirstFound = false;
-	int First = ' ', Last = ' ';
+	int First = NULL, Last = NULL;
+
+	char CheckChar;
 
 	for (int i = 0; i < ToParse.length(); i++)
 	{
-		char CheckChar = ToParse[i];
+		CheckChar = ToParse[i];
 		if (CheckChar >= 65 && CheckChar <= 90)
 		{
 			ToParse[i] += 32;
 		}
+	}
+	for (int i = 0; i < ToParse.length(); i++)
+	{
+		CheckChar = ToParse[i];
 		if (CheckChar >= 48 && CheckChar <= 57)
 		{
 			if (!FirstFound)
@@ -31,28 +37,25 @@ int ParseLine(string ToParse)
 				Last = CheckChar - 48;
 			}
 		}
-		else
+		for (int j =0; j < NumbersAsStrings->length(); j++)
 		{
-			for (int j =0; j < NumbersAsStrings->length(); j++)
+			if (ToParse.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
 			{
-				if (ToParse.substr(i, NumbersAsStrings[j].length()+1) == NumbersAsStrings[j])
+				if (!FirstFound)
 				{
-					if (!FirstFound)
-					{
-						First = j;
-						FirstFound = true;
-					}
-					else
-					{
-						Last = j;
-					}
+					First = j;
+					FirstFound = true;
+				}
+				else
+				{
+					Last = j;
 				}
 			}
 		}
 	}
-	if (First != ' ')
+	if (First != NULL)
 	{
-		if (Last != ' ')
+		if (Last != NULL)
 		{
 			return ((First * 10) + Last);
 		}
@@ -78,5 +81,8 @@ int main()
 	return 0;
 	*/
 
-	cout << ParseLine("nine29059nine");
+	string test = "ONETWO";
+	cout << ParseLine(test) << endl;
+	cout << test;
+	return 0;
 }
