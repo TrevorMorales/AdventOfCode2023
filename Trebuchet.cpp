@@ -37,9 +37,10 @@ int ParseLine(string &ToParse)
 				Last = CheckChar - 48;
 			}
 		}
-		for (int j =0; j < NumbersAsStrings->length(); j++)
+		for (int j = 0; j < 10; j++)
 		{
-			if (ToParse.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
+			string temp = ToParse;
+			if (temp.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
 			{
 				if (!FirstFound)
 				{
@@ -66,7 +67,6 @@ int ParseLine(string &ToParse)
 
 int main()
 {
-	/*
 	int OutputSum = 0;
 	ifstream ifs;
 	ifs.open("Inputs/TrebuchetInput.txt");
@@ -78,11 +78,5 @@ int main()
 	}
 	cout << OutputSum;
 	ifs.close();
-	return 0;
-	*/
-
-	string test = "ONETWO";
-	cout << ParseLine(test) << endl;
-	cout << test;
 	return 0;
 }
