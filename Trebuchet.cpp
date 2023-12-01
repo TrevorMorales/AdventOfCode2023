@@ -1,4 +1,7 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <array>
 
 using namespace std;
 
@@ -36,9 +39,15 @@ string TestExamples[4] = {"1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"};
 
 int main()
 {
-	for (int i = 0; i < TestExamples->length() - 1; i++)
-	{
-		cout << TestExamples[i] << " : " << ParseLine(TestExamples[i]) << endl;
+	ifstream fs;
+	fs.open("Inputs/TrebuchetInput.txt");
+
+	string line;
+	if (fs.is_open()) {
+		while (getline(fs, line)) {
+			cout << ParseLine(line) << endl;
+		}
 	}
+	fs.close();
 	return 0;
 }
