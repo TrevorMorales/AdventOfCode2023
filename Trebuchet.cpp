@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <array>
 
 using namespace std;
 
@@ -11,7 +10,6 @@ int ParseLine(string &ToParse)
 {
 	bool FirstFound = false;
 	int First = NULL, Last = NULL;
-
 	char CheckChar;
 
 	for (int i = 0; i < ToParse.length(); i++)
