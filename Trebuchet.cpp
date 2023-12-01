@@ -63,6 +63,7 @@ int ParseLine(string ToParse)
 
 int main()
 {
+	/*
 	int OutputSum = 0;
 	ifstream ifs;
 	ifs.open("Inputs/TrebuchetInput.txt");
@@ -75,4 +76,7 @@ int main()
 	cout << OutputSum;
 	ifs.close();
 	return 0;
+	*/
+
+	cout << ParseLine("nine29059nine");
 }
