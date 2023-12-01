@@ -29,7 +29,7 @@ int ParseLine(string ToParse)
 		{
 			for (int j =0; j < NumbersAsStrings->length(); j++)
 			{
-				if (ToParse.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
+				if (ToParse.substr(i, NumbersAsStrings[j].length()+1) == NumbersAsStrings[j])
 				{
 					if (!FirstFound)
 					{
