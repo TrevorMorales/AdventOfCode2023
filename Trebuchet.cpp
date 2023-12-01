@@ -21,9 +21,13 @@ int ParseLine(string ToParse)
 			}
 		}
 	}
-	if (First != ' ' && Last != ' ')
+	if (First != ' ')
 	{
-		return ((First * 10) + Last);
+		if (Last != ' ')
+		{
+			return ((First * 10) + Last);
+		}
+		return ((First * 10) + First);
 	}
 	return -1;
 }
@@ -32,7 +36,7 @@ string TestExamples[4] = {"1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"};
 
 int main()
 {
-	for (int i = 0; i < TestExamples->length(); i++)
+	for (int i = 0; i < TestExamples->length() - 1; i++)
 	{
 		cout << TestExamples[i] << " : " << ParseLine(TestExamples[i]) << endl;
 	}
