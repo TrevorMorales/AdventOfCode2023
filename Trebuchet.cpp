@@ -9,7 +9,6 @@ const string NumbersAsStrings[10] = {"zero", "one", "two", "three", "four", "fiv
 int ParseLine(string &ToParse)
 {
 	unsigned int Nums[2] = {NULL, NULL};
-	bool FirstFound = false;
 
 	for (char &c : ToParse) {
 		if (c >= 'A' and c <= 'Z')
@@ -21,15 +20,13 @@ int ParseLine(string &ToParse)
 	{
 		if (ToParse[i] >= '0' and ToParse[i] <= '9')
 		{
-			Nums[FirstFound] = ToParse[i] - 48;
-			FirstFound = (FirstFound ? FirstFound : true);
+			(Nums[0] == NULL ? Nums[0] = ToParse[i] - 48 : Nums[1] = ToParse[i] - 48);
 		}
 		for (int j = 0; j < 10; j++)
 		{
 			if (ToParse.substr(i, NumbersAsStrings[j].length()) == NumbersAsStrings[j])
 			{
-				Nums[FirstFound] = j;
-				FirstFound = (FirstFound ? FirstFound : true);
+				(Nums[0] == NULL ? Nums[0] = j : Nums[1] = j);
 			}
 		}
 	}
