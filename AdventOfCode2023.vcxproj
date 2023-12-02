@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeConundrum.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trebuchet.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CubeConundrum.h" />
+    <ClInclude Include="Trebuchet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

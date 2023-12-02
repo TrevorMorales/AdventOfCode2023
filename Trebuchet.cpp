@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Trebuchet.h"
 
 using namespace std;
 
-const string NumbersAsStrings[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-int ParseLine(string &ToParse)
+int Trebuchet::ParseLine(string &ToParse)
 {
 	unsigned int Nums[2] = {NULL, NULL};
 
@@ -33,7 +32,7 @@ int ParseLine(string &ToParse)
 	return (Nums[0] * 10) + (Nums[1] == NULL ? Nums[0] : Nums[1]);
 }
 
-int main()
+Trebuchet::Trebuchet()
 {
 	int OutputSum = 0;
 	ifstream ifs;
@@ -46,5 +45,4 @@ int main()
 	}
 	cout << OutputSum;
 	ifs.close();
-	return 0;
 }
