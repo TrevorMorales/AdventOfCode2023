@@ -11,10 +11,7 @@ int ParseLine(string &ToParse)
 	unsigned int Nums[2] = {NULL, NULL};
 
 	for (char &c : ToParse) {
-		if (c >= 'A' and c <= 'Z')
-		{
-			c += 32;
-		}
+		c = (c >= 'A' and c <= 'Z' ? c + 32 : c);
 	}
 	for (int i = 0; i <= ToParse.length(); i++)
 	{
@@ -36,15 +33,15 @@ int ParseLine(string &ToParse)
 int main()
 {
 	int OutputSum = 0;
-	ifstream ifs;
-	ifs.open("Inputs/TrebuchetInput.txt");
+	ifstream fs;
+	fs.open("Inputs/TrebuchetInput.txt");
 	string line;
-	if (ifs.is_open()) {
-		while (getline(ifs, line)) {
+	if (fs.is_open()) {
+		while (getline(fs, line)) {
 			OutputSum += ParseLine(line);
 		}
 	}
-	cout << OutputSum;
-	ifs.close();
+	std::cout << OutputSum;
+	fs.close();
 	return 0;
 }
