@@ -43,6 +43,6 @@ Trebuchet::Trebuchet()
 			OutputSum += ParseLine(line);
 		}
 	}
-	cout << OutputSum;
+	cout << OutputSum << endl;
 	ifs.close();
 }

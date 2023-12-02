@@ -5,37 +5,34 @@
 
 using namespace std;
 
-bool CubeConundrum::ValidateGame(map<color, int> GameInput)
+bool CubeConundrum::ValidateGame(vector<map<color, int>> GameInput)
 {
 	return true;
 }
 
 CubeConundrum::CubeConundrum()
 {
-	int OutputSum = 0, GameNum = 0;
+	unsigned int OutputSum = 0, GameNum = 0;
+	
 	ifstream ifs;
 	ifs.open("Inputs/CubeConundrumInput.txt");
-	map<color, int> FileInput;
+	
+	map<color, int> FileInputs;
 	string line;
 	if (ifs.is_open()) {
 		while (getline(ifs, line)) {
-			if (line.substr(0, 5) == "Game ")
+			if (line.substr(0, 4) == "Game")
 			{
 				GameNum = 0;
-				for (int i = 5; line[i] < 48 || line[i] > 57; i++)
+				for (int i = 5; line[i] >= 48 and line[i] <= 57 ; i++)
 				{
-					GameNum += (line[i] - 48) * 10 ^ (i - 6);
+					GameNum = GameNum * 10;
+					GameNum += (line[i] - 48);
 				}
 			}
 			for (int i = 0; i < line.size(); i++)
 			{
-				for (int j = 0; j < 3; j++)
-				{
-					if (line.substr(i, ColorsAsStrings[j].length()) == ColorsAsStrings[j])
-					{
-						line[i + ColorsAsStrings[j].length()]
-					}
-				}
+
 			}
 			if (true)
 			{
